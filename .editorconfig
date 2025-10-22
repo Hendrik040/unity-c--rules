@@ -1,0 +1,17 @@
+root = true
+
+[*.cs]
+# Default C# settings
+indent_style = space
+indent_size = 4
+
+# For Unity projects: suppress or downgrade the "non-bool condition" rule
+# IDE0029: Use null check pattern
+dotnet_diagnostic.IDE0029.severity = suggestion
+
+# CS1525: Invalid expression term
+dotnet_diagnostic.CS1525.severity = none
+
+# Custom rule: If using a third-party analyzer that flags if(UnityObject)
+# You'd add its specific diagnostic ID here
+# Example: dotnet_diagnostic.CUSTOM001.severity = none

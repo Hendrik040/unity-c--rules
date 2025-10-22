@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <!-- Add Unity define constants -->
+    <DefineConstants>UNITY_EDITOR;UNITY_STANDALONE;UNITY_2021_3_OR_NEWER</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Reference to UnityEngine -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(UnityInstallPath)/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    
+    <!-- THE KEY FIX: Add Unity-aware Roslyn analyzers -->
+    <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.19.0" PrivateAssets="all" />
+  </ItemGroup>
+
+</Project>
