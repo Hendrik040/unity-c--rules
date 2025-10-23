@@ -1,37 +1,24 @@
-language: csharp
-reviews:
-  # Request changes workflow
-  request_changes_workflow: false
-  
-  # High level summary
-  high_level_summary: true
-  
-  # Poem style
-  poem: false
-  
-  # Review levels
-  review_status: true
-  
-  # Auto reviews
-  auto_review:
-    enabled: true
-    
-    # Configure rules for Unity projects
-    drafts: false
-    
-  # Path-specific instructions
-  # path_instructions:
-  #   - path: "**/*.cs"
-  #     instructions: |
-  #       - This is a Unity C# project using UnityEngine
-  #       - UnityEngine.Object overloads operator true/false and == null
-  #       - Expressions like `if (unityObject)` are VALID when the type derives from UnityEngine.Object
-  #       - Do NOT flag `if (unityObject)` as a compile error when:
-  #         * The file contains `using UnityEngine;`
-  #         * The variable type is or derives from UnityEngine.Object, GameObject, Component, MonoBehaviour, ScriptableObject, etc.
-  #       - These should be considered AT MOST a "suggestion" severity (to use explicit `!= null`)
-  #       - Only flag as error if the type is NOT a Unity type
-
-# Additional configuration
+language: "en-US"
 chat:
   auto_reply: true
+early_access: false
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false
+  
+# Try enabling satic analysis tools explicitly
+tools:
+  csharp:
+    enabled: true
+    # This might trigger Roslyn analyzers
+    
+  # Or if they support .NET analyzers:
+  dotnet:
+    enabled: true
